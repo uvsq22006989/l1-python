@@ -1,0 +1,50 @@
+def tempsEnSeconde(temps):
+    """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
+    seconde= (temps[0]*86400 + temps[1]*3600 + temps[2]*60 + temps[3])
+    return seconde
+    pass
+ 
+
+def secondeEnTemps(seconde):
+    """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
+    temps0, reste= seconde//86400 , seconde %86400
+    tempsx, reste= reste// 3600 , reste% 3600
+    tempsy, reste= reste // 60 , reste% 60
+    temps3= reste
+    temps = (temps0,tempsx,tempsy,temps3,)
+    return temps
+    pass
+  
+def afficheTemps(temps):
+    print(temps[0], "jours" , end = " ")
+    print(temps[1], "heures" , end = " ")
+    print(temps[2], "minutes" , end = " ")
+    print(temps[3], "secondes" , end = " ")
+    print(" ")
+    pass
+
+def demandeTemps():
+    jours=int(input("Nombre de jours"))
+    heure=int(input("Nombre de heure"))
+    while heure> 24 or heure < 0 :
+        heure=int(input("Nombre de heure"))
+    minute=int(input("Nombre de minute"))
+    while minute> 60 or minute < 0 :
+        minute=int(input("Nombre de minute"))
+    seconde=int(input("Nombre de seconde"))
+    while seconde> 60 or seconde < 0 :
+         seconde=int(input("Nombre de seconde"))
+    temps = (jours, heure, minute, seconde)
+    return temps
+
+    pass
+
+def sommeTemps(temps1,temps2):
+    somme = tempsEnSeconde(temps1) + tempsEnSeconde(temps2)
+    resultat=secondeEnTemps(somme)
+    print(afficheTemps(resultat))
+    
+    pass
+
+def proportionTemps(temps,proportion):
+    pass
